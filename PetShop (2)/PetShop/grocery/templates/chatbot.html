@@ -1,0 +1,102 @@
+<!-- grocery/templates/chatbot.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <title>ThBotX AI</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS (optional, for styling) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-image: url('https://www.skillnetinc.com/wp-content/uploads/2023/10/AI-Chatbot-implementation-1366X600.webp'); 
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #333;
+            padding-top: 50px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #005f73;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        .form-group input, .form-group textarea {
+            font-size: 1.2em;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #00a896;
+        }
+        .btn-primary {
+            background-color: #00a896;
+            border: none;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #00796b;
+        }
+        .response-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e0f7fa;
+            border-radius: 5px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .error-message {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8d7da;
+            border-radius: 5px;
+            font-size: 1.2em;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">ThBotX AI</div>
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="prompt">Enter your message:</label>
+                <textarea class="form-control" id="prompt" name="prompt" rows="3" placeholder="Type your message here..." required>{{ request.POST.prompt }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        
+        {% if response %}
+            <div class="response-box">
+                <strong>Bot:</strong> {{ response }}
+            </div>
+        {% endif %}
+        
+        {% if error %}
+            <div class="error-message">
+                {{ error }}
+            </div>
+        {% endif %}
+    </div>
+    
+    <!-- Optional JavaScript for Bootstrap (if needed) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

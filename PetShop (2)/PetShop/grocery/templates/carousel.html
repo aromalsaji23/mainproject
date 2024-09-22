@@ -1,0 +1,85 @@
+{% extends 'navigation.html' %}
+{% load static %}
+
+{% block body %}
+<style>
+    body {
+        background-image: url('https://wallpaperaccess.com/full/20585.jpg'); /* Background image */
+        background-size: cover; /* Cover the entire screen */
+        background-repeat: no-repeat; /* No repeat */
+        background-position: center; /* Center the image */
+        font-family: Arial, sans-serif;
+        color: #fff; /* Text color for better visibility */
+    }
+    .carousel-item {
+        position: relative;
+    }
+    .carousel-item img {
+        object-fit: cover;
+        filter: brightness(0.85);
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+    }
+    .carousel-indicators li {
+        background-color: #007bff;
+    }
+    .quote {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 1.5em;
+        font-style: italic;
+        color: black; /* Black text color */
+        padding: 20px;
+        border-top: 1px solid rgba(0, 0, 0, 0.5); /* Top border for separation */
+    }
+</style>
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+        <li data-target="#demo" data-slide-to="3"></li>
+        <li data-target="#demo" data-slide-to="4"></li>
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner" style="width:100%; height:550px;">
+        <div class="carousel-item active">
+            <img src="https://cdn.pixabay.com/photo/2018/09/21/21/22/disease-3588683_1280.jpg" alt="" style="height:550px;">
+        </div>
+        <div class="carousel-item">
+            <img src="https://cdn.pixabay.com/photo/2020/05/04/17/09/doctor-5123728_1280.jpg" alt="" style="height:550px;">
+        </div>
+        <div class="carousel-item">
+            <img src="https://cdn.pixabay.com/photo/2018/09/09/14/33/analysis-4475860_1280.jpg" alt="" style="height:550px;">
+        </div>
+        <div class="carousel-item">
+            <img src="https://cdn.pixabay.com/photo/2015/09/16/14/16/doctor-958141_1280.jpg" alt="" style="height:550px;">
+        </div>
+        <div class="carousel-item">
+            <img src="https://cdn.pixabay.com/photo/2017/02/15/14/29/laboratory-2082608_1280.jpg" alt="" style="height:550px;">
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+
+<!-- Quote Section -->
+<div class="quote">
+    "Healthcare is a team effort. Together, we can save lives and improve health."
+</div>
+
+{% block b %}
+{% endblock %}
+{% endblock %}
